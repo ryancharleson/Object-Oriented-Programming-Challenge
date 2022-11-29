@@ -1,10 +1,11 @@
 
 
+//Engineer is going to be inheriting Employee class for email, name, and idnumber.
 
 const Employee = require('./employee');
 
 class Engineer extends Employee {
-
+    //Adding Github to the inherited employee class.
     constructor(email, name, idNum, github) {
         super(email, name, idNum);
         this.github = github

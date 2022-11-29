@@ -1,5 +1,14 @@
-
+//Requiring inquirer for prompts.
 const inquirer = require('inquirer');
+
+const path = require('path');
+const fsAsync = require('fs/promises');
+const generateHtml = require('./generateHTML');
+
+//Requiring classes from javascript file.
+const Intern = require('./assets/javascript/intern');
+const Manager = require('./assets/javascript/manager');
+const Engineer = require('./assets/javascript/engineer');
 
 const team = [];
 
