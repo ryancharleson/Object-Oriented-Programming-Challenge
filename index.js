@@ -60,3 +60,54 @@ const prompts = [
 
 
 
+function writeToFile(fileName, data) {
+    fsAsync.writeFile(path.join(process.cwd(), fileName), data)
+}
+
+
+
+function askQuestions() {
+    inquirer.prompt(prompts)
+
+    .then((answers) => {
+        switch (answers.title) {
+            case  'Manager':
+                const manager = new Manager(answers.id, answers.email, answers.name, answers.officeNum)
+                team.push(manager)
+                break
+            case 'Intern':
+                const intern = new Intern(answers.id, answers.email, answers.name, answers.school)
+                team.push(intern)
+                break 
+            case 'Engineer':
+                const engineer = new Engineer(answers.id, answers.email, answers.name, answers.github) 
+                team.push(engineer)
+                break
+            }
+            otherQuestions()
+        
+    })
+}
+
+function otherQuestions() {
+    inquirer.prompt(
+        [{
+            type: 'list',
+            name: 'last',
+            message: 'Would you like to add another worker?',
+            choices: ['yes', 'no'],
+        }]
+    )
+
+    .then(answers => {
+        switch(answers.last) {
+            case 'yes':
+                askQuestions()
+                break
+                default:
+                    writeToFile('index.html', generateHtml(workers));
+        }
+    })
+}
+
+
