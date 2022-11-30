@@ -6,7 +6,7 @@ function internCard(team) {
 const html = []
     team.forEach(element => {
         html.push (` <div class="column is-one-forth">
-        <div class="card-content has-background-warning-light worker-card">
+        <div class="card-content has-background-white box worker-card">
             <div
                 class="card-title has-text-centered is-size-3 has-background-info has-text-black-light">
                 ${element.name}
@@ -15,9 +15,7 @@ const html = []
             <div class="card-content is-size-5">
                 <ul class="list-group">
                     <li class="list-group-item has-text-weight-bold">ID: ${element.idNum}</li>
-                    <li class="list-group-item has-text-weight-bold">Email: <a
-                            href="malito:jamescharleson@yahoo.com">${element.email}</a>
-                    </li>
+                    <li class="list-group-item has-text-weight-bold">Email: <a href="malito:jamescharleson@yahoo.com">${element.email}</a></li>
                     <li class="list-group-item has-text-weight-bold">School: ${element.school}</li>
                 </ul>
             </div>
@@ -35,7 +33,7 @@ function engineerCard(team) {
     const html = []
     team.forEach(element => {
         html.push (`<div class="column is-fourth">
-        <div class="card-content has-background-warning-light worker-card">
+        <div class="card-content has-background-white box worker-card">
             <div
                 class="card-title has-text-centered is-size-3 has-background-success has-text-black-light">
                 ${element.name}
@@ -66,7 +64,7 @@ function engineerCard(team) {
 function managerCard(team) {
     const html = []
     team.forEach(element => {
-        html.push (`<div class="card-content has-background-warning-light worker-card">
+        html.push (`<div class="card-content has-background-white box worker-card">
         <div class="card-title has-text-centered is-size-3 has-background-danger has-text-black-light">
             ${element.name}
         </div>
@@ -102,11 +100,11 @@ function generateHtml(data) {
     </head>
     
     <body>
-        <div class="pageContainer has-background-info">
-            <div class="container is-fluid">
+        <div class="pageContainer has-background-warning-light">
+            <div class="container is-fluid has-background-warning">
                 <div class="hero has-shadow">
                     <div class="hero-body">
-                        <h1 class="title">Employee Dashboard</h1>
+                        <h1 class="title is-underlined">Employee Dashboard</h1>
                     </div>
                 </div>
             </div>

@@ -76,7 +76,7 @@ function promptUser() {
     .then((answers) => {
         switch (answers.title) {
             case  'Manager':
-                const manager = new Manager(answers.id, answers.email, answers.name, answers.officeNum)
+                const manager = new Manager(answers.email, answers.name, answers.idNum, answers.officeNum)
                 team.push(manager)
                 break
             case 'Intern':
