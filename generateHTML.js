@@ -2,9 +2,9 @@
 
 
 // Function for displaying intern.html card
-function internCard(workers) {
-    const html = []
-    workers.forEach(element => {
+function internCard(team) {
+const html = []
+    team.forEach(element => {
         html.push (` <div class="column is-one-forth">
         <div class="card-content has-background-warning-light worker-card">
             <div
@@ -23,16 +23,17 @@ function internCard(workers) {
             </div>
         </div>
     </div>`)
-    })
+    });
+    return html.join('');
 }
 
 
 
 // Function for displaying engineer.html card
 
-function engineerCard(workers) {
+function engineerCard(team) {
     const html = []
-    workers.forEach(element => {
+    team.forEach(element => {
         html.push (`<div class="column is-fourth">
         <div class="card-content has-background-warning-light worker-card">
             <div
@@ -62,9 +63,9 @@ function engineerCard(workers) {
 
 // Function for displaying manager.html card
 
-function managerCard(workers) {
+function managerCard(team) {
     const html = []
-    workers.forEach(element => {
+    team.forEach(element => {
         html.push (`<div class="card-content has-background-warning-light worker-card">
         <div class="card-title has-text-centered is-size-3 has-background-danger has-text-black-light">
             ${element.name}
@@ -73,9 +74,7 @@ function managerCard(workers) {
         <div class="card-content is-size-5">
             <ul class="list-group">
                 <li class="list-group-item has-text-weight-bold">ID: ${element.idNum}</li>
-                <li class="list-group-item has-text-weight-bold">Email: <a
-                        href="malito:jamescharleson@yahoo.com">${element.email}</a>
-                </li>
+                <li class="list-group-item has-text-weight-bold">Email: <a href="malito:jamescharleson@yahoo.com">${element.email}</a></li>
                 <li class="list-group-item has-text-weight-bold">Office Number: ${element.officeNum}</li>
             </ul>
         </div>
@@ -88,7 +87,7 @@ function managerCard(workers) {
 
 // Function for displaying all HTML including all worker cards.
 
-const displayHtml = (data) => {
+function generateHtml(data) {
     return `<!DOCTYPE html>
     <html lang="en">
     
@@ -114,9 +113,9 @@ const displayHtml = (data) => {
             <section class="section">
                 <div class="container">
                     <h4 class="title has-text-left">Your Employees</h4>
-                    ${internCard(data.filter(workers = workers.returnTitle() === 'Intern'))}
-                    ${engineerCard(data.filter(workers = workers.returnTitle() === 'Engineer'))}
-                    ${managerCard(data.filter(workers= workers.returnTitle() === 'Manager'))}
+                    ${internCard(data.filter(team => team.returnTitle() === 'Intern'))}
+                    ${engineerCard(data.filter(team => team.returnTitle() === 'Engineer'))}
+                    ${managerCard(data.filter(team => team.returnTitle() === 'Manager'))}
                 </div>
             </section>
         </div>
@@ -125,4 +124,4 @@ const displayHtml = (data) => {
     </html>`
 }
 
-module.exports = displayHtml
+module.exports = generateHtml

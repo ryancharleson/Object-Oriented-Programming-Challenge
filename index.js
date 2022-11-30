@@ -1,4 +1,5 @@
 //Requiring inquirer for prompts.
+
 const inquirer = require('inquirer');
 
 const path = require('path');
@@ -66,8 +67,11 @@ function writeToFile(fileName, data) {
 
 
 
-function askQuestions() {
-    inquirer.prompt(prompts)
+function promptUser() {
+    inquirer
+        .prompt(
+            prompts
+        )
 
     .then((answers) => {
         switch (answers.title) {
@@ -102,12 +106,13 @@ function otherQuestions() {
     .then(answers => {
         switch(answers.last) {
             case 'yes':
-                askQuestions()
+                promptUser()
                 break
                 default:
-                    writeToFile('index.html', generateHtml(workers));
+                    writeToFile('index.html', generateHtml(team));
         }
     })
 }
 
 
+promptUser();
